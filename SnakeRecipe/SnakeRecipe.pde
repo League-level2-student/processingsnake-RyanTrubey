@@ -6,12 +6,31 @@
 class Segment {
 
   //2. Create x and y member variables to hold the location of each segment.
-
+  int x;
+  int y;
   // 3. Add a constructor with parameters to initialize each variable.
-
+  public Segment(int x, int y) {
+    this.x = x;
+    this.y = y;
+  }
 
   // 4. Add getter and setter methods for both the x and y member variables.
+  public int getX() {
+    return x;
+  }
+  public int getY() {
+    return y;
+    ;
+  public void setX(int x) {
+    this.x = x;
+  }
 }
+Segment head;
+String direction;
+int foodeaten;
+int foodX = ((int)random(50)*10);
+int foodY = ((int)random(50)*10);
+
 
 
 // 5. Create (but do not initialize) a Segment variable to hold the head of the Snake
@@ -42,9 +61,10 @@ void setup() {
 
 
   // 10. initialize your head to a new segment.
+  head = new Segment(250, 250);
 
-
-  // 11. Use the frameRate(int rate) method to set the rate to 20.
+    // 11. Use the frameRate(int rate) method to set the rate to 20.
+    frameRate(20);
 }
 
 
@@ -54,12 +74,17 @@ void draw() {
 
 
   //12. Call the drawFood, drawSnake, move, and collision methods.
+drawFood();
+drawSnake();
+move();
+collision();
 }
 
 
 // 13. Complete the drawFood method below. (Hint: each piece of food should be a 10 by 10 rectangle).
 
 void drawFood() {
+rect(foodX, foodY, 10, 10);
 }
 
 
@@ -80,20 +105,21 @@ void move() {
   //This is an incomplete switch statement:
   /*
   switch(dir) {
-  case "up":
-    // move head up here 
-    break;
-  case "down":
-    // move head down here 
-    break;
-  case "left":
+   case "up":
+   // move head up here 
+   
+   break;
+   case "down":
+   // move head down here 
+   break;
+   case "left":
    // figure it out 
-    break;
-  case "right":
-    // mystery code goes here 
-    break;
-  }
-  */
+   break;
+   case "right":
+   // mystery code goes here 
+   break;
+   }
+   */
 
 
   // 17. Call the checkBoundaries method to make sure the snake doesn't go off the screen.
@@ -123,7 +149,7 @@ void checkBoundaries() {
 void collision() {
 
   // If the segment is colliding with a piece of food...
-     // Increase the amount of food eaten and set foodX and foodY to new random locations.
+  // Increase the amount of food eaten and set foodX and foodY to new random locations.
 }
 
 
@@ -149,7 +175,7 @@ void manageTail() {
 }
 
 void drawTail() {
-    // Draw a 10 by 10 rectangle for each Segment in your snake ArrayList.
+  // Draw a 10 by 10 rectangle for each Segment in your snake ArrayList.
 }
 
 
